@@ -57,7 +57,7 @@ Project Structure
 | **utils/**              | Utility files                                    |
 | ├── logger.js           | Winston logger configuration                     |
 | └── transporter.js      | Email transporter configuration                  |
-| **app.js**              | Main application entry point                     |
+| **index.js**              | Main application entry point                     |
 | **swagger.json**        | Swagger documentation setup                      |
 | **.env**                | Environment variables                            |
 | **package.json**        | Project metadata and dependencies                |
