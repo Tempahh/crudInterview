@@ -1,46 +1,35 @@
-REST API with MongoDB and Node.js
+## REST API with MongoDB and Node.js
 
 This project is a RESTful API built with Node.js, Express.js, and MongoDB, featuring JWT-based authentication, role-based access control, Swagger documentation, and logging with log rotation.
 
-Features
+### Features
 
-1. Authentication and Authorization
+1. **Authentication and Authorization**
+  - **JWT Authentication**: Secures API endpoints with JSON Web Tokens.
+  - **Role-Based Access Control**: Differentiates between user and admin roles.
+  - **Protected Routes**: Certain routes require authentication and/or admin privileges.
 
-JWT Authentication: Secures API endpoints with JSON Web Tokens.
+2. **User Management**
+  - **Sign-Up**: Users can register with fields like name, firstName, email, country, and password.
+  - **Login**: Users can log in to receive a JWT token.
+  - **Admin Privileges**: Admins can create new users directly.
 
-Role-Based Access Control: Differentiates between user and admin roles.
+3. **Post and Comment Management**
+  - **Post CRUD**: Users can create, update, and delete posts.
+  - **Comments**: Users can add comments to posts.
 
-Protected Routes: Certain routes require authentication and/or admin privileges.
+4. **Documentation**
+  - **Swagger UI**: API documentation available at /api/docs.
 
-2. User Management
+5. **Logging**
+  - **Winston Logger**: Centralized logging for application events.
+  - **Log Rotation**: Daily log files with retention policies.
 
-Sign-Up: Users can register with fields like name, firstName, email, country, and password.
+6. **Rate Limiting**
+  - Prevents abuse of API endpoints using express-rate-limit.
 
-Login: Users can log in to receive a JWT token.
+### Project Structure
 
-Admin Privileges: Admins can create new users directly.
-
-3. Post and Comment Management
-
-Post CRUD: Users can create, update, and delete posts.
-
-Comments: Users can add comments to posts.
-
-4. Documentation
-
-Swagger UI: API documentation available at /api/docs.
-
-5. Logging 
-
-Winston Logger: Centralized logging for application events.
-
-Log Rotation: Daily log files with retention policies.
-
-6. Rate Limiting
-
-Prevents abuse of API endpoints using express-rate-limit.
-
-Project Structure
 | Directory/File          | Description                                      |
 |-------------------------|--------------------------------------------------|
 | **models/**             | Mongoose schemas for MongoDB                     |
@@ -57,40 +46,39 @@ Project Structure
 | **utils/**              | Utility files                                    |
 | ├── logger.js           | Winston logger configuration                     |
 | └── transporter.js      | Email transporter configuration                  |
-| **index.js**              | Main application entry point                     |
+| **index.js**            | Main application entry point                     |
 | **swagger.json**        | Swagger documentation setup                      |
 | **.env**                | Environment variables                            |
 | **package.json**        | Project metadata and dependencies                |
 
-Setup Instructions
+## Setup Instructions
 
-1. Prerequisites
+### 1. Prerequisites
+- **Node.js** (v14+ recommended)
+- **MongoDB** (local or MongoDB Atlas)
 
-Node.js (v14+ recommended)
-
-MongoDB (local or MongoDB Atlas)
-
-2. Install Dependencies
-
+### 2. Install Dependencies
+```sh
 npm install
+```
 
-3. Configure Environment Variables
-
-Create a .env file in the root directory with the following values:
-
+### 3. Configure Environment Variables
+Create a `.env` file in the root directory with the following values:
+```
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/rest-api
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_email_password
+```
 
-4. Start the Server
-
+### 4. Start the Server
+```sh
 npm start
+```
+The API will be accessible at `http://localhost:3000`.
 
-The API will be accessible at http://localhost:3000.
-
-Endpoints
+## Endpoints
 
 | Method | Endpoint                      | Description             |
 |--------|-------------------------------|-------------------------|
@@ -102,6 +90,7 @@ Endpoints
 | PUT    | /api/posts/:id                | Update a post           |
 | DELETE | /api/posts/:id                | Delete a post           |
 | POST   | /api/posts/:id/comments       | Add a comment to a post |
+|--------|-------------------------------|-------------------------|
 
 Swagger Documentation
 
