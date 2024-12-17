@@ -41,26 +41,26 @@ Log Rotation: Daily log files with retention policies.
 Prevents abuse of API endpoints using express-rate-limit.
 
 Project Structure
-
-project-root/
-├── models/               # Mongoose schemas for MongoDB
-│   ├── user.js           # User schema
-│   ├── post.js           # Post schema
-│   └── comment.js        # Comment schema
-├── routes/               # API route handlers
-│   ├── auth.js           # Authentication and user routes
-│   ├── posts.js          # Post routes
-│   └── comments.js       # Comment routes
-├── middleware/           # Custom middleware
-│   └── auth.js           # Authentication and authorization middleware
-├── logs/                 # Log files (auto-generated)
-├── utils/                # Utility files
-│   ├── logger.js         # Winston logger configuration
-│   └── transporter.js    # Email transporter configuration
-├── app.js                # Main application entry point
-├── swagger.json          # Swagger documentation setup
-├── .env                  # Environment variables
-└── package.json          # Project metadata and dependencies
+| Directory/File          | Description                                      |
+|-------------------------|--------------------------------------------------|
+| **models/**             | Mongoose schemas for MongoDB                     |
+| ├── user.js             | User schema                                      |
+| ├── post.js             | Post schema                                      |
+| └── comment.js          | Comment schema                                   |
+| **routes/**             | API route handlers                               |
+| ├── auth.js             | Authentication and user routes                   |
+| ├── posts.js            | Post routes                                      |
+| └── comments.js         | Comment routes                                   |
+| **middleware/**         | Custom middleware                                |
+| └── auth.js             | Authentication and authorization middleware      |
+| **logs/**               | Log files (auto-generated)                       |
+| **utils/**              | Utility files                                    |
+| ├── logger.js           | Winston logger configuration                     |
+| └── transporter.js      | Email transporter configuration                  |
+| **app.js**              | Main application entry point                     |
+| **swagger.json**        | Swagger documentation setup                      |
+| **.env**                | Environment variables                            |
+| **package.json**        | Project metadata and dependencies                |
 
 Setup Instructions
 
