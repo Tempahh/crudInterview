@@ -92,77 +92,16 @@ The API will be accessible at http://localhost:3000.
 
 Endpoints
 
-Authentication
-
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/api/auth/signup
-
-User registration
-
-POST
-
-/api/auth/login
-
-User login
-
-GET
-
-/api/auth/protected
-
-Access protected route
-
-POST
-
-/api/auth/admin/create-user
-
-Create user (Admin only)
-
-Posts
-
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/api/posts
-
-Create a new post
-
-PUT
-
-/api/posts/:id
-
-Update a post
-
-DELETE
-
-/api/posts/:id
-
-Delete a post
-
-Comments
-
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/api/posts/:id/comments
-
-Add a comment to a post
+| Method | Endpoint                      | Description             |
+|--------|-------------------------------|-------------------------|
+| POST   | /api/auth/signup              | User registration       |
+| POST   | /api/auth/login               | User login              |
+| GET    | /api/auth/protected           | Access protected route  |
+| POST   | /api/auth/admin/create-user   | Create user (Admin only)|
+| POST   | /api/posts                    | Create a new post       |
+| PUT    | /api/posts/:id                | Update a post           |
+| DELETE | /api/posts/:id                | Delete a post           |
+| POST   | /api/posts/:id/comments       | Add a comment to a post |
 
 Swagger Documentation
 
