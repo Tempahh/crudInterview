@@ -106,102 +106,79 @@ Endpoints
 Swagger Documentation
 
 Access Swagger UI at: http://localhost:3000/api/docs
+## Detailed Features
 
-Detailed Features
+### 1. JWT Authentication
+- Users receive a JWT token upon successful login.
+- The token is required to access protected routes.
+- Admin routes require both authentication and admin role.
 
-1. JWT Authentication
+### 2. Logging with Winston
+- Logs are stored in the `logs/` directory.
+- Separate log files for general logs and error logs.
+- Daily rotation with retention for 14 days.
 
-Users receive a JWT token upon successful login.
+### 3. Swagger Documentation
+- Automatically generated API documentation using Swagger UI.
+- Includes request/response schemas and authentication details.
 
-The token is required to access protected routes.
+### 4. Rate Limiting
+- Limits requests to 100 per 15 minutes per IP.
+- Protects the API from abuse and denial-of-service attacks.
 
-Admin routes require both authentication and admin role.
+## Testing the API
 
-2. Logging with Winston
+### 1. Using Postman
+- Import the following endpoints and test with valid payloads and headers.
+- Add the JWT token in the Authorization header for protected routes.
 
-Logs are stored in the logs/ directory.
+### 2. Automated Tests
+- Coming soon! Automated tests with Jest and Supertest can be added for API validation.
 
-Separate log files for general logs and error logs.
+## Deployment
 
-Daily rotation with retention for 14 days.
+### 1. Docker Deployment
+- Create a `Dockerfile`:
+  ```dockerfile
+  FROM node:18-alpine
+  WORKDIR /app
+  COPY package.json .
+  RUN npm install
+  COPY . .
+  EXPOSE 3000
+  CMD ["npm", "start"]
+  ```
+- Create a `docker-compose.yml`:
+  ```yaml
+  version: '3.8'
+  services:
+    app:
+      build: .
+      ports:
+        - "3000:3000"
+      environment:
+        - MONGO_URI=mongodb://mongodb:27017/rest-api
+        - JWT_SECRET=your_jwt_secret
+    mongodb:
+      image: mongo
+      ports:
+        - "27017:27017"
+  ```
+- Build and start the containers:
+  ```sh
+  docker-compose up --build
+  ```
 
-3. Swagger Documentation
+### 2. Deploy to Heroku
+- Create a new Heroku app.
+- Add MongoDB Atlas for the database.
+- Set environment variables in Heroku config.
+- Deploy your code to Heroku.
 
-Automatically generated API documentation using Swagger UI.
+## Contributing
+- Fork the repository.
+- Create a feature branch.
+- Submit a pull request.
 
-Includes request/response schemas and authentication details.
-
-4. Rate Limiting
-
-Limits requests to 100 per 15 minutes per IP.
-
-Protects the API from abuse and denial-of-service attacks.
-
-Testing the API
-
-1. Using Postman
-
-Import the following endpoints and test with valid payloads and headers.
-
-Add the JWT token in the Authorization header for protected routes.
-
-2. Automated Tests
-
-Coming soon! Automated tests with Jest and Supertest can be added for API validation.
-
-Deployment
-
-1. Docker Deployment
-
-Create a Dockerfile:
-
-FROM node:18-alpine
-WORKDIR /app
-COPY package.json .
-RUN npm install
-COPY . .
-EXPOSE 3000
-CMD ["npm", "start"]
-
-Create a docker-compose.yml:
-
-version: '3.8'
-services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - MONGO_URI=mongodb://mongodb:27017/rest-api
-      - JWT_SECRET=your_jwt_secret
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
-
-Build and start the containers:
-
-docker-compose up --build
-
-2. Deploy to Heroku
-
-Create a new Heroku app.
-
-Add MongoDB Atlas for the database.
-
-Set environment variables in Heroku config.
-
-Deploy your code to Heroku.
-
-Contributing
-
-Fork the repository.
-
-Create a feature branch.
-
-Submit a pull request.
-
-License
-
-This project is licensed under the MIT License.
-
+## License
+- This project is licensed under the MIT License.
