@@ -30,7 +30,7 @@ Comments: Users can add comments to posts.
 
 Swagger UI: API documentation available at /api/docs.
 
-5. Logging
+5. Logging 
 
 Winston Logger: Centralized logging for application events.
 
